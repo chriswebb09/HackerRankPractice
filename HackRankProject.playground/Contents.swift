@@ -128,6 +128,57 @@ func test(length: Int, array:[Int]) {
     numberOfInstances.map { Double(100 * $0) / Double(100) / Double(length) }.map { print(String(format:"%.6f", $0)) }
 }
 
-
-
 test(length: 6, array: [1,0,3,-4,-5,6])
+
+// ------------------------------------------------
+
+var input = String(readLine()!)
+var pattern = "ABC*D".replacingOccurrences(of: "*", with: ".")
+let regex = try NSRegularExpression(pattern: pattern, options: [])
+
+var check = regex.matches(in: input!, options: [], range: NSRange(location: 0, length: input!.characters.count)).map { $0.numberOfRanges }.count
+
+// ------------------------------------------------
+
+struct EntryStruct {
+    var name: [String]
+    var id: String
+}
+
+var separateSocial = records.flatMap { [$0.components(separatedBy: ":")] }.map { $0 }
+var separateName = separateSocial.flatMap { EntryStruct(name: $0.first!.components(separatedBy: ","), id: $0.last!)}
+var ids = [String]()
+var updatedEntries = [EntryStruct]()
+
+func addToRecords(record:EntryStruct) {
+    if !ids.contains(record.id) {
+        ids.append(record.id)
+        updatedEntries.append(record)
+    }
+}
+
+func checkEntry() {
+    let sortedArray = separateName.sorted {
+        $0.id >= $1.id
+    }
+    let test = sortedArray.sorted { $0.name[0] <= $1.name[0] }
+    test.forEach {
+        if ($0.name[0].components(separatedBy: " ").count >= 3) && $0.name[0].components(separatedBy: ".").count <= 1 {
+            addToRecords(record: $0)
+        }
+        if $0.name[0].components(separatedBy: " ").count == 2 && !ids.contains($0.id) && $0.name[0].components(separatedBy: ".").count <= 1 {
+            addToRecords(record: $0)
+        }
+    }
+    test.forEach {
+        if $0.name.count == 1 {
+            addToRecords(record: $0)
+        }
+    }
+    updatedEntries.forEach {
+        print("\($0.name[0]):\($0.id)")
+    }
+}
+
+checkEntry()
+
