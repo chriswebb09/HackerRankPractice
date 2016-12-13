@@ -67,7 +67,9 @@ func Time(time: Int, age: Int) {
 
 var time = Time(time: 10, age: 12)
 
+
 // ------------------------------------------------
+
 
 func isPrime(number:Int) -> Bool {
     guard number > 2 else { return false }
@@ -98,6 +100,7 @@ removeDuplicates(string:"NOOOO")
 
 
 // ------------------------------------------------
+
 
 func condenseSpace(string:String) -> String {
     return string.replacingOccurrences(of: " ", with: "")
@@ -130,7 +133,9 @@ func test(length: Int, array:[Int]) {
 
 test(length: 6, array: [1,0,3,-4,-5,6])
 
+
 // ------------------------------------------------
+
 
 var input = String(readLine()!)
 var pattern = "ABC*D".replacingOccurrences(of: "*", with: ".")
@@ -138,7 +143,9 @@ let regex = try NSRegularExpression(pattern: pattern, options: [])
 
 var check = regex.matches(in: input!, options: [], range: NSRange(location: 0, length: input!.characters.count)).map { $0.numberOfRanges }.count
 
+
 // ------------------------------------------------
+
 
 struct EntryStruct {
     var name: [String]
@@ -181,4 +188,3 @@ func checkEntry() {
 }
 
 checkEntry()
-
