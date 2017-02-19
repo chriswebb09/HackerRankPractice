@@ -21,9 +21,7 @@ var calculatedTip = calculateValue(paramValue: tipUnwrapped, mealValue: mealUnwr
 var calculatedTax = calculateValue(paramValue: taxUnwrapped, mealValue: mealUnwrapped)
 var calculatedMeal = round(mealUnwrapped + calculatedTip + calculatedTax)
 
-
 // ------------------------------------------------
-
 
 class Person {
     var age: Int = 0
@@ -52,8 +50,6 @@ class Person {
     }
 }
 
-
-
 func Time(time: Int, age: Int) {
     let t = Int(time)
     let age = Int(age)
@@ -67,9 +63,7 @@ func Time(time: Int, age: Int) {
 
 var time = Time(time: 10, age: 12)
 
-
 // ------------------------------------------------
-
 
 func isPrime(number:Int) -> Bool {
     guard number > 2 else { return false }
@@ -86,9 +80,7 @@ func isPrime(number:Int) -> Bool {
 
 isPrime(number: 11)
 
-
 // ------------------------------------------------
-
 
 func removeDuplicates(string:String) -> String {
     var checked = [Character: Bool]()
@@ -98,15 +90,12 @@ func removeDuplicates(string:String) -> String {
 
 removeDuplicates(string:"NOOOO")
 
-
 // ------------------------------------------------
-
 
 func condenseSpace(string:String) -> String {
     return string.replacingOccurrences(of: " ", with: "")
 }
 condenseSpace(string: "A BC")
-
 
 // ------------------------------------------------
 
@@ -120,7 +109,6 @@ func permutations(input:String, builder: String = "") {
         permutations(input: "\(lhs)\(rhs)", builder: builder + String(array[i]))
     }
 }
-
 
 // ------------------------------------------------
 
@@ -139,7 +127,7 @@ func pyramid(range : Int) {
     }
 }
 
-pyramid(range: n)
+pyramid(range: 4)
 
 // ------------------------------------------------
 
@@ -151,6 +139,8 @@ func reverseString(string:String) {
     }
     print(newString)
 }
+
+// ------------------------------------------------
 
 func isPrime(num:Int) -> Bool {
     guard num % 2 != 0 else { return false }
@@ -177,7 +167,6 @@ reverseString(string: "Hello dear")
 
 // ------------------------------------------------
 
-
 func test(length: Int, array:[Int]) {
     
     var positives = 0
@@ -200,9 +189,7 @@ func test(length: Int, array:[Int]) {
 
 test(length: 6, array: [1,0,3,-4,-5,6])
 
-
 // ------------------------------------------------
-
 
 var input = String(readLine()!)
 var pattern = "ABC*D".replacingOccurrences(of: "*", with: ".")
@@ -210,9 +197,7 @@ let regex = try NSRegularExpression(pattern: pattern, options: [])
 
 var check = regex.matches(in: input!, options: [], range: NSRange(location: 0, length: input!.characters.count)).map { $0.numberOfRanges }.count
 
-
 // ------------------------------------------------
-
 
 struct EntryStruct {
     var name: [String]
