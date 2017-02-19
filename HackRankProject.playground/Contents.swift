@@ -110,6 +110,73 @@ condenseSpace(string: "A BC")
 
 // ------------------------------------------------
 
+func permutations(input:String, builder: String = "") {
+    var array = input.characters.map { $0 }
+    var length = input.characters.count
+    if length == 0 { print(builder) }
+    for i in 0 ..< length {
+        var lhs = String(array[0 ..< i])
+        var rhs = String(array[i+1 ..< length])
+        permutations(input: "\(lhs)\(rhs)", builder: builder + String(array[i]))
+    }
+}
+
+
+// ------------------------------------------------
+
+func pyramid(range : Int) {
+    let p = 1...range
+    var strings = ""
+    var ntype = range
+    for p in 1...range {
+        strings = "#\(strings)"
+        var spaces = ""
+        for n in 1...ntype {
+            if n == 1 { spaces = "\(spaces)" } else { spaces = " \(spaces)" }
+        }
+        ntype -= 1
+        if p == range - 1 { print("\(spaces)\(strings)") } else { print("\(spaces)\(strings)") }
+    }
+}
+
+pyramid(range: n)
+
+// ------------------------------------------------
+
+func reverseString(string:String) {
+    var stingArray = string.components(separatedBy: " ")
+    var newString = ""
+    stingArray.forEach {
+        newString = "\($0) \(newString)"
+    }
+    print(newString)
+}
+
+func isPrime(num:Int) -> Bool {
+    guard num % 2 != 0 else { return false }
+    for i in 2 ..< num {
+        if num % i == 0 { return false }
+    }
+    return true
+}
+
+// ------------------------------------------------
+
+func factorial(N:Int) -> Int {
+    var intVal = N
+    if intVal == 0 {
+        return 1
+    } else {
+        return intVal * factorial(N: intVal - 1)
+    }
+}
+
+print(factorial(N: 6))
+isPrime(num: 27)
+reverseString(string: "Hello dear")
+
+// ------------------------------------------------
+
 
 func test(length: Int, array:[Int]) {
     
