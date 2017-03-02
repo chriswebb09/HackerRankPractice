@@ -6,6 +6,21 @@ var str = "Hello, playground"
 
 // ------------------------------------------------
 
+var originalSentence = "Hello world"
+
+var sentenceArray = originalSentence.components(separatedBy:  " ")
+originalSentence = ""
+
+sentenceArray.forEach { sentence in
+    var newWord = sentence.characters.reversed().map { String($0) }
+    originalSentence = "\(originalSentence)\(newWord.joined(separator: "")) "
+}
+
+print(originalSentence)
+
+
+// ------------------------------------------------
+
 var meal: Double? = Double(10.25)
 
 var tip: Double? = Double(17)
